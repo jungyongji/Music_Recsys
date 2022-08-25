@@ -1,7 +1,7 @@
 # 감성분석에 따른 음악 추천 알고리즘
 
 ## Architecture Brief
-<img src="https://user-images.githubusercontent.com/54973366/186086186-53be1060-0a3a-4dcf-8e57-dd7e54cd582d.jpg" width="365" height="400"/>
+<img src="https://user-images.githubusercontent.com/54973366/186600721-938703fe-a89a-4c80-8205-722962651698.svg" width="800" height="600"/>
 
 ## Emotion_classification
 - 입력 값으로 받은 사용자의 문장을 6개의 라벨(분노/긴장/슬픔/평화/기쁨/중립)을 기준으로 Multi-class sentiment classification을 통해 감정을 분류합니다.  
