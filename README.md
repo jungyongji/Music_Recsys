@@ -27,7 +27,7 @@
 ## Recommendation
 - 추천 시스템 작동과정  
     1. 사용자는 지금의 상태나 느낌을 문장으로 표현합니다.
-    2. Emotion_classification으로 입력받은 문장에 대해 감성분석을 진행하여 softmax의 마지막 벡터(1,6)을 추출합니다.
+    2. Emotion_classification으로 입력받은 문장에 대해 감성분석을 진행하여 softmax의 마지막 벡터(1,6)를 추출합니다.
     3. 데이터베이스에서 input 문장을 변환한 벡터(1,6)과 가장 가까운 유사도를 가지는 embedded 벡터를 찾아냅니다.
     
 - 추후 추가 예정인 기능
