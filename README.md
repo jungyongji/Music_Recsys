@@ -8,15 +8,26 @@
 
 - 학습에 사용되는 데이터는 AI-HUB 감성대화 말뭉치와 한국어 감정 정보가 포함된 단발성 대화 데이터셋입니다.  
 
-- 모델로 사용될 후보군은 다음과 같습니다.
-    - KcBert
-    - Klue-RoBERTa-base
-    - Kc-Electra
-    - KoBERT
+- 모델 선정 과정은 다음과 같습니다.
+    모델|F1_score|Precision|Recall|
+|------|---|---|---|
+|KcBert|.714|.717|.719|
+|Klue-RoBERTa-large|.723|.722|.726|
+|Kc-Electra|.713|.713|.715|
+|KoBERT|.629|.625|.616|
+
+최종적으로 Klue-RoBETa-large로 결정되었습니다.
+
+성능 향상을 위해 AI-HUB 일상어 데이터를 INPUT으로 DAPT기법을 적용하였습니다. 도메인의 범위가 큰 순서대로 PRE-TRAIN의 기준으로 삼고 진행하였습니다.(가사-일상어-감성어)
+
+모델 하이퍼파라미터 튜닝의 경우 lr,optimizer,patience 등을 수정하면서 실험을 진행하였으며 결과는 아래 그래프와 같습니다.
+|LOSS|F1_score|
+|------|---|
+|![](/Users/jeonhyeongjin/main_project/readme_image/wandb_graph1.png)|![](/Users/jeonhyeongjin/main_project/readme_image/wandb_graph1.png)|
 
 ## Lyrics_crawl
 - 카카오 아레나(https://arena.kakao.com/c/8) 데이터를 DB를 곡 제목을 기준으로 멜론 웹사이트를 통해 가사를 수집합니다.
-- 가사 내용을 기준으로 감성분석을 진행하여 해당 곡이 어떠한 감성(분노/긴장/슬픔/평화/기쁨/중립)에 가까운지 라벨링합니다.
+- 가사 내용을 기준으로 감성분석을 진행하여 해당 곡이 어떠한 감성(분노/긴장/슬픔/평화/기쁨/중립)에 가까운지 라벨링합니다. 모델은 Emotion_classification와 동일한 모델이 사용됩니다. 
 
 ## Mel-Spectrogram
 - 카카오 아레나(https://arena.kakao.com/c/8)의 Mel-spectrogram data를 사용하여 멜로디 패턴에서 감성을 찾습니다.
@@ -24,14 +35,17 @@
     1. 해당 곡의 Mel-spectrogram data는 가사내용의 감성과 동일한 시너지를 낸다고 가정합니다. (가사내용과 상반되는 멜로디가 있을 경우는 배제)
     2. 라벨링된 Mel-spectrogram data를 기준으로 비슷한 형태를 띄는 다른 Mel spectrogram data에 Active learning을 적용하여 라벨링합니다.
 
+- 범석님네 임베딩 github url
+
 ## Recommendation
 - 추천 시스템 작동과정  
     1. 사용자는 지금의 상태나 느낌을 문장으로 표현합니다.
     2. Emotion_classification으로 입력받은 문장에 대해 감성분석을 진행하여 softmax의 마지막 벡터(1,6)를 추출합니다.
-    3. 데이터베이스에서 input 문장을 변환한 벡터(1,6)과 가장 가까운 유사도를 가지는 embedded 벡터를 찾아냅니다.
+    3. Music Database에서 input 문장을 변환한 벡터(1,6)과 가장 가까운 코사인 유사도를 가지는 embedded 벡터를 찾아냅니다.
     
 - 추후 추가 예정인 기능
-    - 사용자는 가사와 멜로디의 감성 비중을 조절할 수 있습니다. (가사에 감정이 더 진하게 나타나면 좋을지, 멜로디에서 감정이 진하게 나타나면 좋을지)
-    - 조절된 비중은 가사 벡터와 멜로디 벡터의 가중합에 가중치로 사용됩니다.
-    - 최종적으로 합쳐진 노래의 embedded 벡터를 추천에 사용합니다.
+    - 유저들의 평가를 조합하여 협업기반 필터링(Collaborative Filtering) 
+    - 가사가 없는 노래들을 Mel embedding 데이터로 변환하여 추천 알고리즘에 적용
+    - 음성인식 모듈을 장착해 INPUT 형태의 다양화
+    - 
     
