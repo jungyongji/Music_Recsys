@@ -27,6 +27,7 @@
 
 
 선정된 모델(adafactor_1r1e_6)의 주요 파라미터 값
+|model_name|adafactor_1r1e_6|
 |------|---|
 Optimizer | adafactor|
 batch_size | 32|
