@@ -9,7 +9,7 @@
 - 학습에 사용되는 데이터는 AI-HUB 감성대화 말뭉치와 한국어 감정 정보가 포함된 단발성 대화 데이터셋입니다.  
 
 - 모델 선정 과정은 다음과 같습니다.
-    모델|F1_score|Precision|Recall|
+|모델|F1_score|Precision|Recall|
 |------|---|---|---|
 |KcBert|.714|.717|.719|
 |Klue-RoBERTa-large|.723|.722|.726|
