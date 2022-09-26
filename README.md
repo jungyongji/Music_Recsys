@@ -24,6 +24,8 @@
 |LOSS|F1_score|
 |------|---|
 |![](/readme_image/wandb_graph1.png)|![](/readme_image/wandb_graph2.png)|
+
+
 선정된 모델(adafactor_1r1e_6)의 주요 파라미터 값
 Optimizer : adafactor
 batch_size : 32
