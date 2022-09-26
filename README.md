@@ -26,7 +26,7 @@
 |![](/readme_image/wandb_graph1.png)|![](/readme_image/wandb_graph2.png)|
 
 
-선정된 모델의 주요 파라미터 값
+### 선정된 모델의 주요 파라미터 값
 |model_name|adafactor_1r1e_6|
 |------|---|
 Optimizer | adafactor|
