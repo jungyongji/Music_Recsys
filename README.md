@@ -24,6 +24,12 @@
 |LOSS|F1_score|
 |------|---|
 |![](/readme_image/wandb_graph1.png)|![](/readme_image/wandb_graph2.png)|
+선정된 모델(adafactor_1r1e_6)의 주요 파라미터 값
+Optimizer : adafactor
+batch_size : 32
+learning_rate : 1e-6
+
+
 
 ## Lyrics_crawl
 - 카카오 아레나(https://arena.kakao.com/c/8) 데이터를 DB를 곡 제목을 기준으로 멜론 웹사이트를 통해 가사를 수집합니다.
