@@ -23,7 +23,7 @@
 모델 하이퍼파라미터 튜닝의 경우 lr,optimizer,patience 등을 수정하면서 실험을 진행하였으며 결과는 아래 그래프와 같습니다.
 |LOSS|F1_score|
 |------|---|
-|![](/readme_image/wandb_graph1.png)|![](/readme_image/wandb_graph1.png)|
+|![](/readme_image/wandb_graph1.png)|![](/readme_image/wandb_graph2.png)|
 
 ## Lyrics_crawl
 - 카카오 아레나(https://arena.kakao.com/c/8) 데이터를 DB를 곡 제목을 기준으로 멜론 웹사이트를 통해 가사를 수집합니다.
