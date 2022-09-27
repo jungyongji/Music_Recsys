@@ -46,7 +46,7 @@ learning_rate | 1e-6|
     1. 해당 곡의 Mel-spectrogram data는 가사내용의 감성과 동일한 시너지를 낸다고 가정합니다. (가사내용과 상반되는 멜로디가 있을 경우는 배제)
     2. 라벨링된 Mel-spectrogram data를 기준으로 비슷한 형태를 띄는 다른 Mel spectrogram data에 Active learning을 적용하여 라벨링합니다.
 
-- 범석님네 임베딩 github url
+- 512차원 임베딩 모델 : https://github.com/music-embedding-aiffelthon/Music-embedding
 
 ## Recommendation
 - 추천 시스템 작동과정  
@@ -58,5 +58,4 @@ learning_rate | 1e-6|
     - 유저들의 평가를 조합하여 협업기반 필터링(Collaborative Filtering) 
     - 가사가 없는 노래들을 Mel embedding 데이터로 변환하여 추천 알고리즘에 적용
     - 음성인식 모듈을 장착해 INPUT 형태의 다양화
-    - 
     
