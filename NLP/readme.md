@@ -10,5 +10,5 @@ https://drive.google.com/drive/folders/1e9dT_54Mcv_FLUFCaHXOpZBVoClCyjPD?usp=sha
 
 
 ## DAPT,Fine-tuning huggingface url
-DAPT_가사 일상어 감성어순 : https://huggingface.co/JUNEYEOB/DAPT_batch512_lyric_con_sent
+DAPT_가사 일상어 감성어순 : https://huggingface.co/JUNEYEOB/DAPT_batch512_lyric_con_sent  
 Fine-tuning : https://huggingface.co/JUNEYEOB/FT_lcs_adafactor_lr1e_6
