@@ -44,7 +44,7 @@ def cached():
     tokenizer = AutoTokenizer.from_pretrained('klue/roberta-large')
     loaded_model = AutoModelForSequenceClassification.from_pretrained("JUNEYEOB/FT_lcs_adafactor_lr1e_6", num_labels=6)
     pipe = pipeline(task = 'text-classification', model = loaded_model, tokenizer = tokenizer,return_all_scores = True)
-    data = pd.read_csv('recsys_data/meta.csv')
+    data = pd.read_csv('/Users/jeonhyeongjin/resys/2015meta.csv')
 
     return pipe, data
 pipe, data = cached()
@@ -102,9 +102,9 @@ if text:
         start = time.time()
         emotion = emotion_analysis(text, pipe)
 
-        vectors = np.load('recsys_data/2015lyric_mel.npy') #lyric+mel 가중합 데이터
-        # vectors = np.load('recsys_data/2015lyric.npy')
-        # vectors = np.load('recsys_data/2015mel.npy')
+        vectors = np.load('/Users/jeonhyeongjin/resys/2015lyric_mel.npy') #lyric+mel 가중합 데이터
+        # vectors = np.load('/Users/jeonhyeongjin/resys/2015lyric.npy')
+        # vectors = np.load('/Users/jeonhyeongjin/resys/2015mel.npy')
 
         cos_sim(vectors, emotion, data)
         end = time.time()
