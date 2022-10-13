@@ -29,7 +29,8 @@
 
 
 ### Architecture Brief
-<img src="https://user-images.githubusercontent.com/54973366/186615945-31aa4f87-ca3a-41d1-9068-9a7d6a0d2021.svg" width="800" height="667"/>  
+![Architecture_image](https://user-images.githubusercontent.com/63575140/195488187-98b4460b-b642-49e2-b9cc-3f2b778bfed7.jpg)
+
 
 KLUE-RoBERTa-Large모델에 가사, 일상어, 감성어를 Masked LM 기반 pre-train을 수행했습니다. Task 데이터셋의 크기가 작고 pre-train 데이터셋과 유사하기 때문에 backbone model을 freeze하여 bottleneck feature를 추출한 뒤 감성어 데이터셋으로 FC layer만 학습시키는 finetuning과정을 거쳤습니다.
 
