@@ -2,8 +2,8 @@
 
 
 ## Introduction
-사용자에게 대화체 또는 구어체 문장을 입력받아 감성을 분석한 뒤 현재 감성과 유사한 음악 5곡을 추천하는 알고리즘입니다.
-
+사용자에게 대화체 또는 구어체 문장을 입력받아 감성을 분석한 뒤 현재 감성과 유사한 음악 5곡을 추천하는 알고리즘입니다.  
+  
 
 
 ## Data collection
@@ -11,20 +11,22 @@
 |-|-|-|
 |온라인 구어체 말뭉치|온라인 플랫폼(게시판, 댓글 등)에서 구어체 위주의 텍스트 데이터|https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=625|
 |감성 대화 말뭉치|일반인 1,500명을 대상으로 하여 음성 15,700문장 및 코퍼스 27만 문장 구축|https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=86|
-|Melon Playlist Continuation|멜론 음악 70만건에 대한 곡정보|https://arena.kakao.com/c/8|
+|Melon Playlist Continuation|멜론 음악 70만건에 대한 곡정보|https://arena.kakao.com/c/8|  
+  
+  
 
 ### Lyrics_crawling
 - 카카오 아레나(https://arena.kakao.com/c/8) 데이터를 DB를 곡 제목을 기준으로 멜론 웹사이트를 통해 가사를 수집합니다.
-- 가사 내용을 기준으로 감성분석을 진행하여 해당 곡이 어떠한 감성(분노/긴장/슬픔/평화/기쁨/중립)에 가까운지 라벨링합니다. 모델은 Emotion_classification와 동일한 모델이 사용됩니다.
+- 가사 내용을 기준으로 감성분석을 진행하여 해당 곡이 어떠한 감성(분노/긴장/슬픔/평화/기쁨/중립)에 가까운지 라벨링합니다. 모델은 Emotion_classification와 동일한 모델이 사용됩니다.  
+  
+  
 
 ### Mel-Spectrogram
 - 카카오 아레나(https://arena.kakao.com/c/8)의 Mel-spectrogram data를 사용하여 멜로디 패턴에서 감성을 찾습니다.
-
-
-- 512차원 임베딩 모델 : https://github.com/music-embedding-aiffelthon/Music-embedding
-
-
-
+- 512차원 임베딩 모델 : https://github.com/music-embedding-aiffelthon/Music-embedding  
+  
+  
+  
 ## Further infomation
 
 
@@ -32,8 +34,9 @@
 ![Architecture_image](https://user-images.githubusercontent.com/63575140/195488187-98b4460b-b642-49e2-b9cc-3f2b778bfed7.jpg)
 
 
-KLUE-RoBERTa-Large모델에 가사, 일상어, 감성어를 Masked LM 기반 pre-train을 수행했습니다. Task 데이터셋의 크기가 작고 pre-train 데이터셋과 유사하기 때문에 backbone model을 freeze하여 bottleneck feature를 추출한 뒤 감성어 데이터셋으로 FC layer만 학습시키는 finetuning과정을 거쳤습니다.
-
+KLUE-RoBERTa-Large모델에 가사, 일상어, 감성어를 Masked LM 기반 pre-train을 수행했습니다. Task 데이터셋의 크기가 작고 pre-train 데이터셋과 유사하기 때문에 backbone model을 freeze하여 bottleneck feature를 추출한 뒤 감성어 데이터셋으로 FC layer만 학습시키는 finetuning과정을 거쳤습니다.  
+  
+  
 
 ### Emotion_classification
 - 입력 값으로 받은 사용자의 문장을 6개의 라벨(분노/긴장/슬픔/평화/기쁨/중립)을 기준으로 Multi-class sentiment classification을 통해 감정을 분류합니다.  
@@ -64,9 +67,10 @@ KLUE-RoBERTa-Large모델에 가사, 일상어, 감성어를 Masked LM 기반 pre
 |------|---|
 Optimizer | adafactor|
 batch_size | 32|
-learning_rate | 1e-6|
-
-
+learning_rate | 1e-6|  
+  
+  
+  
  
 
 ## (main topic) Recommendation
